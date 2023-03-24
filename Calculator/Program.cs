@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+
             // Declare variables and then initialize to zero.
             double num1, num2;
 
