@@ -1,0 +1,16 @@
+//Computers table - Basic
+/*Console
+Form with columns
+	- ID
+	- BRAND
+	- MODEL
+	- COMPANY
+	- ROOM 	- ID
+		- NAME
+*/
+
+//Computers table - Advanced
+/*Console
+- Form with Columns (as above)
+- Get Details button(System.Windows... properties) for each column
+*/
