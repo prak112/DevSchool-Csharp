@@ -1,16 +1,22 @@
 //Computers table - Basic
 /*Console
-Form with columns
+Computer Registry :
 	- ID
 	- BRAND
 	- MODEL
-	- COMPANY
+	- Owned/Leased
+
+Location Registry :
 	- ROOM 	- ID
 		- NAME
+		- List of Computer Objects
 */
+
 
 //Computers table - Advanced
 /*Console
 - Form with Columns (as above)
 - Get Details button(System.Windows... properties) for each column
+- Filter data based on Room Number
+- Display chart (Num of comps VS Room ID)
 */
