@@ -1,12 +1,13 @@
 //Computers table - Basic
 /*Console
-Computer Registry :
+ - Build CLASSES with following methods
+[ ] >> CLASS Computer Registry :
 	- ID
 	- BRAND
 	- MODEL
 	- Owned/Leased
 
-Location Registry :
+ [ ] >> CLASS Location Registry :
 	- ROOM 	- ID
 		- NAME
 		- List of Computer Objects
@@ -15,8 +16,8 @@ Location Registry :
 
 //Computers table - Advanced
 /*Console
-- Form with Columns (as above)
-- Get Details button(System.Windows... properties) for each column
-- Filter data based on Room Number
-- Display chart (Num of comps VS Room ID)
+[ ] - Form with Columns (as above)
+[ ] - Get Details button(System.Windows... properties) for each column
+[ ] - Filter data based on Room Number
+[ ] - Display chart (Num of comps VS Room ID)
 */
