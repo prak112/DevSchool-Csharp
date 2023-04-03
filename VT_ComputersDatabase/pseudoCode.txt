@@ -1,12 +1,13 @@
 //Computers table - Basic
 /*Console
-Computer Registry :
+ - Build CLASSES with following methods
+>> CLASS Computer Registry :
 	- ID
 	- BRAND
 	- MODEL
 	- Owned/Leased
 
-Location Registry :
+>> CLASS Location Registry :
 	- ROOM 	- ID
 		- NAME
 		- List of Computer Objects
