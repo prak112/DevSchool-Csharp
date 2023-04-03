@@ -1,13 +1,17 @@
 //Computers table - Basic
 /*Console
 Form with columns
+Computer Registry :
 	- ID
 	- BRAND
 	- MODEL
-	- COMPANY
+	- Owned/Leased
+Location Registry :
 	- ROOM 	- ID
 		- NAME
+		- List of Computer Objects
 */
+
 
 //Computers table - Advanced
 /*Console
