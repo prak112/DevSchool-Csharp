@@ -21,17 +21,55 @@ Account Balance : {account.Balance}");
 }
 */
 
-var account = new BankAccount("Du-Fart", 1000);
 
-account.MakeWithdrawal(500, DateTime.Now, "Rent payment");
-Console.WriteLine(account.Balance);
-account.MakeDeposit(100, DateTime.Now, "Friend paid me back");
-Console.WriteLine(account.Balance);
+// create new customer account
+var account = new BankAccount("DuFart", 1000);
 
-Console.WriteLine(
-$@"New account opened.
+// customer account overview -- HARDCODED, to create an array
+Console.WriteLine($@"
+New account opened.
 Account ID : {account.ID}
 Owner Name : {account.Owner}
-Account Balance : {account.Balance}");
+Account Balance : {account.Balance}
+");
 
+// add transactions
+account.MakeWithdrawal(500, DateTime.Now, "Rent payment");
+Console.WriteLine(account.Owner + "-" + account.Balance);
+account.MakeDeposit(100, DateTime.Now, "Friend paid me back");
+Console.WriteLine(account.Owner + "-" + account.Balance + "\n");
+
+// test - account statement
+try
+{
+    string accountStatement = account.GetAccountHistory();
+    Console.WriteLine($"Account Statement April 2023 :\n{accountStatement}\n");
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message + "\n");
+}
+
+
+// test - initial balance must be positive
+BankAccount invalidAccount;
+try
+{
+    invalidAccount = new BankAccount("testAccount", -200);
+}
+catch (ArgumentOutOfRangeException ex)
+{
+    Console.WriteLine("\nERROR : Account created with Negative Balance.\nDetails : " + ex.Message+"\n");
+}
+
+// test - withdraw amount exceeds Balance
+try
+{
+    account.MakeWithdrawal(10200, DateTime.Now, "Test to withdraw amount exceed balance");
+}
+catch(InvalidOperationException ex)
+{
+    Console.WriteLine("\nERROR : Withdraw amount exceeds Balance.\nDetails : "+ex.Message+"\n");
+    return;
+}
 
