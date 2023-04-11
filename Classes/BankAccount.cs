@@ -1,9 +1,31 @@
 ﻿namespace Classes;
 
+/*
+ * Structural Hierarchy -
+ * Class - collection of methods, Ex. string / List
+ * Class Method - specific function inside a Class, Ex.string.Length / List.Count
+ * Object/Variable - template of the Class/Class Method called inside a Program for repetitive use or onetime use
+ *      Ex1. string variableName = new string("*", 5);  
+ *          -> calls string Class and saves string variableName as "*****"
+ *      Ex2. List<var> genericArray = new List<var>() { 32, "randy", 21.4, "2.1325", True }  
+ *          -> List class is called to create a new object "genericArray". All items are saved in it.
+ */
+
 public class BankAccount
 {   
-    // define properties
-    public string ID { get; }
+    // define Class properties
+    public string ID 
+    { 
+        get 
+        {
+            // call and save Random method in a variable
+            var random = new Random();
+        
+            // convert 10-digit random number to string
+            string ID = random.Next().ToString();
+            return ID;
+        } 
+    }
     public string Owner { get; set; }
     public decimal Balance 
     {
@@ -22,8 +44,6 @@ public class BankAccount
     // define constructor (similar name as Class)
     public BankAccount (string name, decimal initialBalance)
     {      
-        //private static int accountIdSeed = 1234546756;        
-        this.ID = IDgenerator();
         this.Owner = name;
 
         // need to understand
@@ -32,17 +52,6 @@ public class BankAccount
 
 
     // define methods
-    // constructor method
-    public string IDgenerator ()
-    {
-        // save Random method in a variable
-        var random = new Random();
-        // convert 10-digit random number to string
-        string ID = random.Next().ToString();
-
-        return ID;
-    }
-
     // create List in connection with Transaction Class
     private List<Transaction> allTransactions = new List<Transaction>();
 
@@ -73,7 +82,8 @@ public class BankAccount
         {
             throw new InvalidOperationException("Insufficient Funds. Transaction not possible");
         }
-
+         
+        // add transaction to allTransactions List
         var withdrawal = new Transaction(-amount, date, note);
         allTransactions.Add(withdrawal);
     }
