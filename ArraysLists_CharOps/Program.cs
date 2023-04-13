@@ -1,0 +1,74 @@
+﻿namespace ArraysLists;
+
+internal class CharOperations
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(@"
+---Welcome To Character Operations---
+Summary:
+- Enter a word, when asked
+- If word length is Odd, then it is Capitalized, else printed as is
+- This operation is done using both Arrays and Lists
+");
+        // initialize variables
+        bool userExit = false;
+
+        // initialize loop for continued usage, until userExit = true
+        try
+        {
+            while (!userExit)
+            {
+                // user input
+                Console.Write("Enter random word : ");
+                string word = Console.ReadLine();                 
+
+                // initialize ARRAY for chars
+                char[] wordCharacters = new char[word.Length];
+                // read characters and save in wordCharacters Array
+                for (int i= 0; i < word.Length; i++)
+                {
+                    if (word.Length % 2 == 0)    // filter words for capitalization
+                    {
+                        wordCharacters[i] = word[i];        // assign character to array index
+                    }
+                    else
+                    {
+                        wordCharacters[i] = (char)(word[i] - 32);     // datatype casting for char capitalization by ASCII value
+                    }
+                }
+                Console.WriteLine("\n-Array Output-\nCharacters of word are :");
+                foreach(char c in wordCharacters)
+                {
+                    Console.Write($"-{c}");
+                }
+
+                // initialize LIST for chars
+                List<char> wordChars = new List<char>();
+                // read characters and save wordChars List
+                for (int j =0; j < word.Length; j++)
+                {
+                    if (word.Length %2 == 0) {
+                        wordChars.Add(word[j]);     // add character to List
+                    }
+                    else
+                    {
+                        wordChars.Add((char)(word[j]-32)); // datatype casting for char capitalization by ASCII value
+                    }
+                }
+                Console.WriteLine("\n\n-List Output-\nCharacters of word are :");
+                foreach(char c in wordChars)
+                {
+                    Console.Write($"-{c}");
+                }
+
+                //option for user exit
+                Console.WriteLine("\nPress 'q' to Exit or Enter to continue");
+                if(Console.ReadLine() == "q") { userExit = true; }
+            }
+            Console.WriteLine("\n---End Character Operations---\n");
+        }
+        catch(Exception ex) { Console.WriteLine("ERROR : "+ ex.Message); }
+
+    }
+}
