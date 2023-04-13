@@ -1,0 +1,32 @@
+namespace <program_topic>;
+
+internal class <program_name>
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(@"
+---Welcom to <program_name>---
+Summary:
+- <program_summary_point1>
+- <program_summary_point2>...
+");
+        // initialize variables
+        bool userExit = false;
+        // initialize loop for continuos usage until userExit = True
+        try
+        {
+            while (!userExit)
+            {
+		        // PROGRAM_CODE BELOW
+
+
+
+                // option for user to exit
+                Console.WriteLine("Press 'q' to exit or Enter to continue");
+                if(Console.ReadLine() == "q") { userExit = true; }
+            }
+            Console.WriteLine("\n---End <program_name>---\n");
+        }
+        catch (Exception ex) { Console.WriteLine("ERROR : " + ex.Message); }
+    }
+}
