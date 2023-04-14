@@ -1,14 +1,14 @@
-namespace <program_topic>;
+namespace <PROGRAM_TOPIC>;
 
-internal class <program_name>
+internal class <PROGRAM_NAME>
 {
     static void Main(string[] args)
     {
         Console.WriteLine(@"
----Welcom to <program_name>---
+---Welcom to <PROGRAM_NAME>---
 Summary:
-- <program_summary_point1>
-- <program_summary_point2>...
+- <PROGRAM_SUMMARY_POINT1>
+- <PROGRAM_SUMMARY_POINT2>...
 ");
         // initialize variables
         bool userExit = false;
@@ -28,6 +28,6 @@ Summary:
             }
             Console.WriteLine("\n---End <program_name>---\n");
         }
-        catch (Exception ex) { Console.WriteLine("ERROR : " + ex.Message); }
+        catch (Exception ex) { Console.WriteLine($"ERROR : {ex.Message}\n---Terminate <PROGRAM_NAME>---\n"); }
     }
 }
