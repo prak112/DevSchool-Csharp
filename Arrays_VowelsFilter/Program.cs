@@ -19,7 +19,7 @@ Summary :
             while (!userExit)
             {
                 Console.Write("Enter a word : ");
-                string word = Console.ReadLine();
+                string word = Console.ReadLine().ToLower();
                 int vowelCount = 0;
 
                 // initialize Array to store vowels
