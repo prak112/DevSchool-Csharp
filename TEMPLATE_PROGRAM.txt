@@ -12,12 +12,13 @@ Summary:
 ");
         // initialize variables
         bool userExit = false;
-        // initialize loop for continuos usage until userExit = True
-        try
+	  
+	  // application loop, until userExit = true        
+	  try
         {
             while (!userExit)
             {
-		        // PROGRAM_CODE BELOW
+		    // PROGRAM_CODE BELOW
 
 
 
