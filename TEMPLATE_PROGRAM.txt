@@ -22,7 +22,7 @@ Summary:
 
 
                 // option for user to exit
-                Console.WriteLine("Press 'q' to exit or Enter to continue");
+                Console.WriteLine("\nPress 'q' to exit or Enter to continue");
                 if(Console.ReadLine() == "q") { userExit = true; }
             }
             Console.WriteLine("\n---End <program_name>---\n");
