@@ -71,8 +71,8 @@ Day Average - {temperatureList.Average()} Celsius
                 Console.WriteLine("\nPres 'q' to Exit or Enter to continue");
                 if (Console.ReadLine() == "q") { userExit = true; }
             }
+            Console.WriteLine("\n---End Temperature Monitor using Data Structures---\n");
         }
-        catch (Exception ex) { Console.WriteLine("ERROR : " + ex.Message); }
-        Console.WriteLine("\n---End Temperature Monitor using Data Structures---\n");
+        catch (Exception ex) { Console.WriteLine($"ERROR : {ex.Message}\n---TERMINATE Temperature Monitor---\n"); }
     }
 }
