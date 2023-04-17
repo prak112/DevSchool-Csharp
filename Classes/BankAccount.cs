@@ -1,19 +1,11 @@
 ﻿namespace Classes;
 
-/*
- * Structural Hierarchy -
- * Class - collection of methods, Ex. string / List
- * Class Method - specific function inside a Class, Ex.string.Length / List.Count
- * Object/Variable - template of the Class/Class Method called inside a Program for repetitive use or onetime use
- *      Ex1. string variableName = new string("*", 5);  
- *          -> calls string Class and saves string variableName as "*****"
- *      Ex2. List<var> genericArray = new List<var>() { 32, "randy", 21.4, "2.1325", True }  
- *          -> List class is called to create a new object "genericArray". All items are saved in it.
- */
 
+// define class HEADER
 public class BankAccount
 {   
-    // define Class properties
+    // define Class Members
+
     public string ID 
     { 
         get 
