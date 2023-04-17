@@ -1,0 +1,109 @@
+﻿//import libraries
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataStructures;
+
+internal class DataStructures
+{
+    private static void Main(string[] args)
+    {
+        #region Arrays
+
+        Console.WriteLine("\n---Welcome To Array Operations---\n\nArrays will save your inputs. Enter 3 numbers (press 'q' to Exit) : ");
+        // initialize array
+        int[] intsArray = new int[3];
+        int result = 0;
+        int userInput = 0;
+        bool userExit = false;
+
+        // save user input
+        try
+        {
+            while (!userExit)
+            {
+                Console.WriteLine($"Sum of Numbers using FOR loop");
+                for (int i = 0; i < intsArray.Length; i++)
+                {
+                    intsArray[i] = int.Parse(Console.ReadLine());
+                    result += intsArray[i];
+                }
+                Console.WriteLine($"FOR loop result : {result}");
+                // same operation using FOREACH
+                Console.WriteLine($"Sum of Numbers using FOREACH loop");
+                result = 0;
+                foreach (int i in intsArray)
+                {
+                    userInput = int.Parse(Console.ReadLine());
+                    result += userInput;
+                }
+                Console.WriteLine($"FOREACH loop result : {result}");
+                // option for user to quit
+                Console.WriteLine("Press 'q' to Exit");
+                if (Console.ReadLine() == "q")
+                {
+                    userExit = true;
+                }
+            }
+            Console.WriteLine($"Using Array Function for sum : {intsArray.Sum()}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("ERROR : " + ex.Message);
+        }
+        // sum the inputs and print
+        Console.WriteLine("\n---End Array Elements Sum---\n");
+        #endregion
+
+
+        #region Lists
+
+        Console.WriteLine("\n---Welcome To LIST Operations---\n\nLIST will save your inputs. Enter numbers (Press 'q' to Exit) : ");
+        // intialize List
+        var numList = new List<int>();
+        int listResult = 0;
+        userExit = false;
+        // read user inputs
+        try
+        {
+            while (!userExit)
+            {
+                userInput = int.Parse(Console.ReadLine());
+                numList.Add(userInput);
+                listResult += userInput;
+                // option for user to quit
+                if (Console.ReadLine() == "q")
+                {
+                    userExit = true;
+                }
+            }
+            //sum the inputs
+            Console.WriteLine($"Sum of Numbers, manual: {listResult}\nUsing Array Function for sum : {numList.Sum()}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("ERROR : " + ex.Message);
+        }
+        Console.WriteLine("\n---End LIST Elements Sum---\n");
+
+        #endregion
+
+
+        #region StringSearch
+
+        Console.WriteLine("\n---Welcome To String Search in ARRAYS---\n\nARRAY will save your inputs. Enter random words (Press 'q' to Exit) : ");
+
+
+        #endregion
+
+    }
+}
+
+
+
+
+
