@@ -1,0 +1,37 @@
+namespace EnergyConversion
+{
+	class EnergyConversion
+	{
+		public static (double, string) EnergyConversion(double value, string valueUnit)
+		{
+			// define return output Tuple
+			(double, string) conversion = (0, "");
+
+            	// calculation using Ternary operator, pack Tuple with results
+			conversion.Item1 = (valueUnit == "c") ? Math.Round((value * 0.2390), 2) : Math.Round((value * 4.184), 2);
+			conversion.Item2 = (valueUnit = "c") ? "Calories" : "Joules";
+			return conversion;
+		}
+
+	}
+
+	class MainProgram
+	{
+		public static void Main (string[] args)
+		{
+		    // user input
+                Console.WriteLine("\n---Welcome to Calorie-Joules converter---\nEnter energy value : ");
+                double value = double.Parse(Console.ReadLine());
+                Console.WriteLine("Enter value Units :\n-'c' for Calories\n-'j' for Joules: ");
+                string valueUnit = Console.ReadLine();
+
+                // call function
+                (double, string) conversion = Methods.CaloriesAndJoules(value, valueUnit);
+		    // unpack Tuple items
+                double convertedValue = conversion.Item1;
+                string unitType = conversion.Item2;
+                Console.WriteLine($"Converted {value} to {unitType}\nAfter Conversion : {convertedValue} {unitType}");	
+		}
+	}
+
+}

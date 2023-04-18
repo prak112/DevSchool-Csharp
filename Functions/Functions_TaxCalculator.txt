@@ -1,0 +1,37 @@
+namespace TaxCalculator
+{
+	class TaxCalculator
+	{
+		public static (double, double) MySalary(double grossSalary, double taxRate)
+		{
+			// define return output Tuple
+			(double, double) taxAndSalary = (0, 0);
+
+			// convert taxRate to percentage
+            	taxRate = taxRate / 100d;
+
+			// calculation
+			paidTax = grossSalary * taxRate;
+            	taxAndSalary.Item1 = Math.Round((grossSalary - paidTax), 2);
+            	taxAndSalary.Item2 = Math.Round(paidTax, 2);
+            	return taxAndSalary;
+		}
+	}
+
+	class MainProgram
+	{
+		public static void Main(string[] args)
+		{
+			// user input for gross salary and tax rate
+                	Console.WriteLine("\n---Welcome to Tax Calculator---\nEnter Gross Salary : ");
+                	grossSalary = double.Parse(Console.ReadLine());
+
+                	Console.WriteLine("Enter Tax Percentage: ");
+                	double taxRate = double.Parse(Console.ReadLine());
+
+                	// call function
+                	(double, double) taxAndSalary = Methods.TaxCalculator(grossSalary, taxRate);
+                	Console.WriteLine($"Your Net Salary : {taxAndSalary.Item1}\nTaxes Paid : {taxAndSalary.Item2}");
+		}		
+	}
+}
