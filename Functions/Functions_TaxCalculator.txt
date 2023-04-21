@@ -23,15 +23,15 @@ namespace TaxCalculator
 		public static void Main(string[] args)
 		{
 			// user input for gross salary and tax rate
-                	Console.WriteLine("\n---Welcome to Tax Calculator---\nEnter Gross Salary : ");
-                	grossSalary = double.Parse(Console.ReadLine());
+            Console.WriteLine("\n---Welcome to Tax Calculator---\nEnter Gross Salary : ");
+            grossSalary = double.Parse(Console.ReadLine());
 
-                	Console.WriteLine("Enter Tax Percentage: ");
-                	double taxRate = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Tax Percentage: ");
+            double taxRate = double.Parse(Console.ReadLine());
 
-                	// call function
-                	(double, double) taxAndSalary = Methods.TaxCalculator(grossSalary, taxRate);
-                	Console.WriteLine($"Your Net Salary : {taxAndSalary.Item1}\nTaxes Paid : {taxAndSalary.Item2}");
+            // call function
+            (double, double) taxAndSalary = Methods.TaxCalculator(grossSalary, taxRate);
+            Console.WriteLine($"Your Net Salary : {taxAndSalary.Item1}\nTaxes Paid : {taxAndSalary.Item2}");
 		}		
 	}
 }
