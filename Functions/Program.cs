@@ -1,5 +1,7 @@
-﻿using Functions; // namespace label of Practice class
+﻿using Functions; // namespace label of Practice class consisting of Methods
+                 // Methods - only logic for all tasks
 
+// MainProgram - usage of Methods and Presentation of outputs
 namespace MainProgram
 {
     class Program
@@ -83,6 +85,79 @@ namespace MainProgram
 
 
                 #endregion
+
+                #region FuelConsumption-2DArray&2DList
+
+                Console.WriteLine("\n---Welcome to Fuel Consumption Calculator---\nEnter total number of Trips : ");
+                // user input for totalTrips
+                int totalTrips = int.Parse(Console.ReadLine());
+
+
+                // array to display - Trip Distance, Fuel Cost
+                double[,] travelCostArray = new double[totalTrips, 2];      // 2D array with totalTrips rows and 2 columns
+
+                // LIST -
+                // 2D list to display - Trip Distance, Fuel Cost    -->    // 3 Ways -https://www.delftstack.com/howto/csharp/declare-a-multidimensional-list-in-csharp/
+                // define class TravelCost to define structure of List
+                // use class TravelCost to structure travelCostList
+                List<Methods.TravelCost> travelCostList = new List<Methods.TravelCost>();
+
+
+                // option to exit
+                bool userExit = false;
+
+                while (!userExit)
+                {
+                    Console.WriteLine("\n--Output with ARRAYS--\n");
+                    for (int i = 0; i < totalTrips; i++)
+                    {
+                        // ARRAY - user trips entry
+                        Console.Write($"Enter Trip {i+1} Distance : ");
+                        double tripDistance = double.Parse(Console.ReadLine());
+                        // assign tripDistance to output array
+                        travelCostArray[i, 0] = tripDistance;
+                        // assign fuelCost to outputArray
+                        travelCostArray[i, 1] = Methods.FuelConsumption(tripDistance);
+                    }
+                    
+                    // ARRAY - display travelCostArray items
+                    for (int j = 0; j < totalTrips; j++)
+                    {
+                        Console.WriteLine($"Trip Distance : {travelCostArray[j, 0]} km\t\tFuel Cost : {travelCostArray[j, 1]} Euro");
+                    }
+                    Console.WriteLine();
+
+                    Console.WriteLine("\n--Output with LISTS--\n");
+                    // LIST - assign elements to List
+                    for (int l = 0; l < totalTrips; l++)
+                    {
+                        // user trips entry
+                        Console.Write($"Enter Trip {l+1} Distance : ");
+                        double tripDistance = double.Parse(Console.ReadLine());
+
+                        // create class TravelCost object
+                        Methods.TravelCost travelObject = new Methods.TravelCost();
+                        // pack data into travelObject members
+                        travelObject.distance = tripDistance;
+                        travelObject.fuelCost = Methods.FuelConsumption(tripDistance);
+                        // pack travelObject into travelCostList
+                        travelCostList.Add(travelObject);
+                    }
+                    Console.WriteLine();
+                    // LIST - display travelCostList items
+                    foreach(var item in travelCostList)
+                    {
+                        Console.WriteLine($"Trip Distance : {item.distance} km\t\tFuel Cost : {item.fuelCost} Euro");
+                    }
+
+                    // user choice to continue or exit
+                    Console.WriteLine("\nPress 'q' to Exit or Enter to continue");
+                    userExit = Console.ReadLine() == "q" ? true : false;
+                }
+                
+                #endregion
+
+
             }
             catch (Exception ex) { Console.WriteLine("ERROR : " + ex.Message); }
         }

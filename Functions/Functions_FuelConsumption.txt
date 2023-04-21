@@ -1,0 +1,88 @@
+namespace FuelConsumption
+{
+	class FuelConsumption
+	{
+		public static double FuelCost(double tripDistance)
+		{
+			double tripCost = Math.Round((tripDistance * 2.163), 2); // current Premium98 petrol price
+			return tripCost;
+		}
+		
+		public class TravelCost
+		{
+			public double distance {get; set; }
+			public double fuelCost {get; set; }
+		}
+
+
+		public static void Main(string[] args)
+		{
+			try
+			{
+				Console.WriteLine("\n---Welcome to Fuel Consumption Calculator---\nEnter total number of Trips : ");
+                // user input for totalTrips
+                int totalTrips = int.Parse(Console.ReadLine());
+                
+				// ARRAY - Trip Distance, Fuel Cost
+                double[,] travelCostArray = new double[totalTrips, 2];      // 2D array with totalTrips rows and 2 columns
+
+				// LISTS- initialize 2D list using class TravelCost to define List structure
+				List <TravelCost> travelCostList = new List<TravelCost>();
+				                
+				// option to exit
+                bool userExit = false;
+				
+				while (!userExit)
+				{
+					// ARRAYS- user trips entry
+					Console.WriteLine("\n--Output with ARRAYS--\n");
+					for (int i = 0; i < totalTrips; i++)
+					{
+						Console.Write($"Enter Trip {i+1} Distance : ");
+                        double tripDistance = double.Parse(Console.ReadLine());
+                        // assign tripDistance to output array
+                        travelCostArray[i,0] = tripDistance;
+                        // assign fuelCost to outputArray
+                        travelCostArray[i,1] = FuelCost(tripDistance);
+					}
+
+					// ARRAYS- trip cost display
+					 for (int j = 0; j < totalTrips; j++)
+                    {
+                        Console.WriteLine($"Trip Distance : {travelCostArray[j, 0]} km\t\tFuel Cost : {travelCostArray[j, 1]} Euro");
+                    }
+					Console.WriteLine();
+	
+					// LISTS-user trips entry
+					Console.WriteLine("\n--Output with LISTS--\n");
+					for (int l = 0; l < totalTrips; l++)
+					{
+						Console.Write($"Enter Trip {l+1} Distance : ");
+                        double tripDistance = double.Parse(Console.ReadLine());
+
+						// create TravelCost class object to pack data
+						TravelCost data = new TravelCost();
+						
+						// pack tripDistance and FuelCost value
+						data.distance = tripDistance;
+						data.fuelCost = FueclCost(tripDistance);
+						
+						// pack TravelCost object into travelCostList
+						travelCostList.Add(data);
+					}
+
+					// LISTS- display travelCostList items
+					foreach (var item in travelCostList)
+					{
+						Console.WriteLine($"Trip Distance :  {item.distance} km\t\tFuel Cost : {item.fuelCost} Euro");
+					}
+
+                    // user choice to continue or exit
+                    Console.WriteLine("\nPress 'q' to Exit or Enter to continue");
+                    userExit = Console.ReadLine() == "q" ? true : false;
+				}
+			}
+			catch (Exception ex) {Console.WriteLine("ERROR : " + ex.Message);}
+		}
+	}
+}
