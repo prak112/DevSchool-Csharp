@@ -44,6 +44,47 @@
 * MEMBERS (Methods, Properties)
 * ASSEMBLIES (Metadata, ex: .exe or .dll files)
 
+### Standard Skeleton of C# Program
+
+using System;
+namespace YourNamespace
+{
+    class YourClass
+    {
+    }
+
+    struct YourStruct
+    {
+    }
+
+    interface IYourInterface
+    {
+    }
+
+    delegate int YourDelegate();
+
+    enum YourEnum
+    {
+    }
+
+    namespace YourNestedNamespace
+    {
+        struct YourStruct
+        {
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Your program starts here...
+            Console.WriteLine("Hello world!");
+        }
+    }
+}
+
+
 
  #### TYPE Parameters in Generic CLASS 
 * Used to define Members of the Class, using angle brackets (<>) in Class HEADER
