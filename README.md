@@ -48,6 +48,13 @@
 
 ## TYPE System
 
+* .NET Framework follows [Common Type System or CTS](https://learn.microsoft.com/en-us/dotnet/standard/base-types/common-type-system).
+* CTS supports following 5 different categories :
+    1. <b>Classes
+    2. Structures
+    3. Enumerations
+    4. Interfaces
+    5. Delegates</b>
 * RECORD, used to define any of the TYPES for storage and minimal associated behavior (for ex. record struct, record class, etc.)
 * VALUE TYPES (Immutable)
     * Simple (int, short, float, double, decimal, bool, char)
