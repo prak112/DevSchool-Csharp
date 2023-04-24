@@ -55,7 +55,7 @@
     3. Enumerations
     4. Interfaces
     5. Delegates</b>
-* RECORD, used to define any of the TYPES for storage and minimal associated behavior (for ex. record struct, record class, etc.)
+* RECORD, used to define any of the TYPES for storage and minimal associated behavior (for ex. `record struct`, `record class`, etc.)
 * VALUE TYPES (Immutable)
     * Simple (int, short, float, double, decimal, bool, char)
     * Enum
