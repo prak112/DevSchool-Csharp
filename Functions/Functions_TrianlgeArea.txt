@@ -1,0 +1,36 @@
+namespace TriangleArea
+{
+	class TriangleArea
+	{
+		public static double Area(double width, double height)
+		{
+			double area = 0.5 * width * height;
+			return area;
+		}
+
+	}
+
+	class MainProgram
+	{
+		public static void Main(string[] args)
+		{
+			try
+			{	// welcome and user input
+	             	Console.WriteLine("\n---Area of Trianlge---\nEnter base length of Triangle : ");
+      	       	double width = double.Parse(Console.ReadLine());
+            	 	Console.WriteLine("Enter height of Triangle : ");
+			 	double height = double.Parse(Console.ReadLine());
+
+				// call function
+                   	double area = TriangleArea.Area(width, height);
+                   	Console.WriteLine($"Area of Triange : {area} sq. units");	
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("ERROR : " + ex.Message);
+			}
+		}
+
+	}
+
+}

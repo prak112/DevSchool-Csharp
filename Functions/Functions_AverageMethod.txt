@@ -1,0 +1,52 @@
+namespace Functions
+{
+    class Methods
+    {
+        // public method
+        public static double Mean(int[] numbers)
+        {
+            Console.WriteLine("\nThis method calculates Mean from given Numbers");
+            int totalCount = numbers.Count();
+            double sum = 0;
+            foreach (int num in numbers)
+            {
+                sum += num;
+            }
+            double mean = sum/totalCount;
+            
+            return mean;
+        }
+    }
+
+    class Program
+    {        
+        // Main method
+        public static void Main(string[] args)
+        {
+
+            try
+            {
+                // user input for Mean method
+                // totalNumbers given as user input
+                Console.WriteLine(" Enter total numbers to calculate Mean : ");
+                int totalNumbers = int.Parse(Console.ReadLine());
+
+                // initialize array
+                int[] numArray = new int[totalNumbers];
+
+                // iterate for user input based on totalNumbers
+                Console.WriteLine($"Please enter {totalNumbers} integers");
+                for (int i = 0; i < totalNumbers; i++)
+                {
+                    Console.Write($"Integer {i+1} : ");
+                    numArray[i] = int.Parse(Console.ReadLine());
+                }
+                Console.WriteLine("Mean of given numbers : " + Methods.Mean(numArray));
+
+            }
+            catch (Exception ex) { Console.WriteLine("ERROR : " + ex.Message); }
+        }
+    }
+
+
+}

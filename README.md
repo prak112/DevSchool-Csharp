@@ -1,43 +1,104 @@
-# C# Basics
-*README credit - Bing AI :tanabata_tree: , with some manual editing by prak112 :octocat:*
+# C# Learnings
+*SOURCE : [Microsoft Learn-Down the Rabbit hole...](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/)* :octocat:
 
-- This repository contains basic C# programs that demonstrate the fundamental concepts of C#. 
+## Overview
+
+- This repository contains basic C# programs that demonstrate the fundamental concepts of C#, includes and not limited to :
+   - Datatypes
+   - String operations
+   - Loops
+   - Data Structures (Arrays, Lists)
+   - Classes
 - The programs are written in Visual Studio 2022 and can be run on Windows, Linux or MacOS
-- Also includes assignment from Software Developer Training at Savon Ammattiopisto (SAKKY)
+- Includes tasks and final assignment from Software Developer Training at Savon Ammattiopisto (SAKKY)
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
+- [Fundamentals](#fundamentals)
+- [Type System](#type-system)
+- [Execution and Program Hierarchy](#execution-and-program-hierarchy)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
+-------------
 
-## Getting Started
+## Fundamentals
+### C# Features
+ - Garbage Collection (check Source for more), i.e., automated reclamation of memory occupied by unreachable unused objects
+ - LINQ, Language Integrated Query, to provide commmon-pattern syntax to work with data from any source
 
+### C# Program Execution
+- C# compiles the code to IL (Intermediate Language)
+- Code in IL is converted by .NET (CLR-Common Language Runtime & Set of Class libraries) to native-machine instructions by JIT (JustInTime) compilation
+
+
+### GENERIC CLASS
+
+* Class - collection of methods, Ex. string / List
+* Method - specific function inside a Class, Ex.string.Length / List.Count
+* Object(Variable using Class) - template of the Class called inside a Program for multiple use, i.e., instance of a class
+    * Example 1 - calls string Class and saves string fiveStars as "*****"
+    ```sh
+    string fiveStars = new string("*", 5);  
+    ```
+    * Example 2 - List class is called to create a new object "genericArray". All items are saved in it
+    ```sh
+    List<var> genericArray = new List<var>() { 32, "randy", 21.4, "2.1325", True }  
+    ```    
+
+
+## TYPE System
+
+* RECORD, used to define any of the TYPES for storage and minimal associated behavior (for ex. record struct, record class, etc.)
+* VALUE TYPES (Immutable)
+    * Simple (int, short, float, double, decimal, bool, char)
+    * Enum
+    * Struct (similar to class, but inherits from Object)
+    * Nullable
+    * Tuple
+* REFERENCE TYPES (Mutable)
+    * Class
+        * Unicode Strings (string)
+        * User-defined
+    * Interface (possible Network Programming feature)
+    * Array
+    * Delegate (equivalent to Decorators in Python)
+
+
+## Execution and Program Hierarchy
+
+* PROGRAMS (multiple Files and/or namespaces)
+* NAMESPACES (holds Classes, Properties and everything included in the Program)
+* TYPES (Value & Reference, ex. Class, Array, int, string, etc.)
+* MEMBERS (Methods, Properties)
+* ASSEMBLIES (Metadata, ex: .exe or .dll files)
+
+
+------------
+## Usage
+
+### Getting Started
 To get a local copy up and running follow these simple steps.
 
-## Prerequisites
-
+### Prerequisites
 - Visual Studio 2022
 - .NET Framework 6.0 or later
 
-## Installation
 
+### Installation
 1. Clone the repo
    ```sh
    git clone https://github.com/prak112/sakky-okk-Cperus.git
    ```
 2. Open the solution file in Visual Studio.
 
-## Usage
+### Working
+1. Create a new Project
+2. Build your Logic
+3. Click on ```<project_name>.sln``` file
+4. Debug the program
+5. Correct errors as shown in *"Error List"*
 
-1. Build the solution.
-2. Run the program.
-
-## Contributing
-
+### Contributing
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
@@ -47,7 +108,6 @@ Contributions are what make the open source community such an amazing place to l
 5. Open a Pull Request
 
 ## License
-
 Distributed under the MIT License. See `LICENSE` for more information.
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
