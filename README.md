@@ -10,7 +10,7 @@
    - Data Structures (Arrays, Lists)
    - Classes
 - The programs are written in Visual Studio 2022 and can be run on Windows, Linux or MacOS
-- Also includes assignment from Software Developer Training at Savon Ammattiopisto (SAKKY)
+- Includes tasks and final assignment from Software Developer Training at Savon Ammattiopisto (SAKKY)
 
 ## Table of Contents
 
