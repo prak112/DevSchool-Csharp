@@ -10,26 +10,26 @@ using System.Collections.Generic;
 public class FibonacciNumbers
 {
     // class properties
-    public int TotalNumbers { get; set; }
+    public long TotalNumbers { get; set; }
 
     // class constructor
-    public FibonacciNumbers(int aTotalNumbers)
+    public FibonacciNumbers(long aTotalNumbers)
     {
         TotalNumbers = aTotalNumbers;
     }
 
     // class Methods
-    public List<int> ForwardSeries ()
+    public List<long> ForwardSeries ()
     {
         // create result List
-        List<int> forwardSeries = new List<int> { 0, 1};
+        List<long> forwardSeries = new List<long> { 0, 1};
 
         // add sum of (n-2)th and (n-1)th element
         for(int i = forwardSeries.Count; i <= TotalNumbers; i++)
         {
-            int previous1 = forwardSeries[i - 1];
-            int previous2 = forwardSeries[i - 2];
-            int nextFib = previous1 + previous2;
+            long previous1 = forwardSeries[i - 1];
+            long previous2 = forwardSeries[i - 2];
+            long nextFib = previous1 + previous2;
 
             forwardSeries.Add(nextFib);
         }
@@ -37,17 +37,17 @@ public class FibonacciNumbers
 
     }
 
-    public List<int> BackwardSeries ()
+    public List<long> BackwardSeries ()
     {
         // create result List
-        List<int> backwardSeries = new List<int> { -1, 0 };
+        List<long> backwardSeries = new List<long> { 0, -1 };
 
         // add sum of (n)th and (n-1)th element
         for (int i = backwardSeries.Count; i <= TotalNumbers; i++)
         {
-            int previous1 = backwardSeries[i - 1];
-            int previous2 = backwardSeries[i - 2];
-            int prevFib = previous1 + previous2;
+            long previous1 = backwardSeries[i - 1];
+            long previous2 = backwardSeries[i - 2];
+            long prevFib = previous1 + previous2;
 
             backwardSeries.Add(prevFib);
         }

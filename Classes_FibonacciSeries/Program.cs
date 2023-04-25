@@ -30,8 +30,8 @@ Summary:
                     // create FibonacciNumbers object and pass variable
                     FibonacciNumbers userSeries = new FibonacciNumbers(totalNumbers);
 
-                    // result list series
-                    List <int> resultList = new List <int>();
+                    // create Long format resultList series
+                    List <long> resultList = new List <long>();
 
                     // choose FibonacciNumber method by direction
                     Console.WriteLine("Resulting Fibonacci Series : "); 
