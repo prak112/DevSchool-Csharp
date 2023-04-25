@@ -28,7 +28,7 @@ Summary:
             }
             Console.WriteLine("\n---End <program_name>---\n");
         }
-        catch (Exception ex) { Console.WriteLine($"ERROR : {ex.Message}\n---Terminate <PROGRAM_NAME>---\n"); }
+        catch (Exception ex) { Console.WriteLine($"ERROR : {ex.Message}\n---Terminate Program---\n"); }
     }
 }
 }
