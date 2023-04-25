@@ -1,8 +1,8 @@
 namespace <PROGRAM_TOPIC>;
 
-internal class <PROGRAM_NAME>
+class <PROGRAM_NAME>
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         Console.WriteLine(@"
 ---Welcom to <PROGRAM_NAME>---
@@ -13,8 +13,8 @@ Summary:
         // initialize variables
         bool userExit = false;
 	  
-	  // application loop, until userExit = true        
-	  try
+	    // application loop, until userExit = true        
+	    try
         {
             while (!userExit)
             {
@@ -28,6 +28,6 @@ Summary:
             }
             Console.WriteLine("\n---End <program_name>---\n");
         }
-        catch (Exception ex) { Console.WriteLine($"ERROR : {ex.Message}\n---Terminate <PROGRAM_NAME>---\n"); }
+        catch (Exception ex) { Console.WriteLine($"ERROR : {ex.Message}\n---Terminate Program---\n"); }
     }
 }
