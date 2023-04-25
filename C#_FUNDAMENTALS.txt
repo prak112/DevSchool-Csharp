@@ -1,6 +1,28 @@
 
-* SOURCE -  Down the Rabbit hole... https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/
- 
+# C# Learnings
+*SOURCE : [Microsoft Learn-Down the Rabbit hole...](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/)* :octocat:
+
+## Overview
+
+- This repository contains basic C# programs that demonstrate the fundamental concepts of C#, includes and not limited to :
+   - Datatypes
+   - String operations
+   - Loops
+   - Data Structures (Arrays, Lists)
+   - Classes
+- The programs are written in Visual Studio 2022 and can be run on Windows, Linux or MacOS
+- Also includes assignment from Software Developer Training at Savon Ammattiopisto (SAKKY)
+
+
+## Table of Contents
+
+- [Fundamentals](#fundamentals)
+- [Type System](#type-system)
+- [Execution and Program Hierarchy](#execution-and-program-hierarchy)
+- [Usage](#usage)
+- [License](#license)
+
+## Fundamentals
 ### C# Features
  - Garbage Collection (check Source for more), i.e., automated reclamation of memory occupied by unreachable unused objects
  - LINQ, Language Integrated Query, to provide commmon-pattern syntax to work with data from any source
@@ -14,13 +36,18 @@
 * Class - collection of methods, Ex. string / List
 * Method - specific function inside a Class, Ex.string.Length / List.Count
 * Object(Variable using Class) - template of the Class called inside a Program for multiple use, i.e., instance of a class
-    Ex1. string fiveStars = new string("*", 5);  
-        -> calls string Class and saves string fiveStars as "*****"
-    Ex2. List<var> genericArray = new List<var>() { 32, "randy", 21.4, "2.1325", True }  
-        -> List class is called to create a new object "genericArray". All items are saved in it.
+    * Example 1 - calls string Class and saves string fiveStars as "*****"
+    ```sh
+    string fiveStars = new string("*", 5);  
+    ```
+    * Example 2 - List class is called to create a new object "genericArray". All items are saved in it
+    ```sh
+    List<var> genericArray = new List<var>() { 32, "randy", 21.4, "2.1325", True }  
+    ```
+    
 
 
-### Kind of TYPES
+## TYPE System
 * RECORD, used to define any of the TYPES for storage and minimal associated behavior (for ex. record struct, record class, etc.)
 * VALUE TYPES (Immutable)
     * Simple (int, short, float, double, decimal, bool, char)
@@ -37,7 +64,7 @@
     * Delegate (equivalent to Decorators in Python)
 
 
-### Program Structure/Hierarchy
+## Program Structure/Hierarchy
 * PROGRAMS (multiple Files and/or namespaces)
 * NAMESPACES (holds Classes, Properties and everything included in the Program)
 * TYPES (Value & Reference, ex. Class, Array, int, string, etc.)
@@ -85,37 +112,6 @@ namespace YourNamespace
 }
 
 
-
- #### TYPE Parameters in Generic CLASS 
-* Used to define Members of the Class, using angle brackets (<>) in Class HEADER
-* Code Example:
-    
-* Class Definition
- >>>
-    # Generic Class HEADER 
-    public class Pets<TInfo1, TInfo2>
-    {
-        # Generic Class MEMBERS
-        public TInfo1 Info1 {get; }
-        public TInfo2 Info2 {get; }
-
-        # Constructor Class
-        public Pets (TInfo1 name, TInfo2 animal)
-        {
-            (Info1, Info2) = (name, animal);
-            return (Info1, Info2);
-        }
-
-        # Constructor Class - Alternate Code
-        public Pets (TInfo1 name, TInfo2 animal) => 
-            (Info1, Info2) = (name, animal)
-
-    }
-
-    * Class Call
-    var pets = new Pets<string, string>("puhtato", "cat")       // assign Pets class to object
-    string name = pets.Info1;                                   // assign object values to variables
-    string animal = pets.Info2;
 
 
 
