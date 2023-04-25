@@ -66,7 +66,7 @@
 
 ## Getting Started with C#
  - Find a suitable Environment based on situation :
-    - [Browser based/ Microsoft Learn/ Jupyter on Binder Tutorials](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/)
+    - [Online Environment](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/), i.e., Browser based/ Microsoft Learn/ Jupyter on Binder Tutorials
     - [Local Environment](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/local-environment), i.e., Personal Device 
 
 
