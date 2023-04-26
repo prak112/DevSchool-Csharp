@@ -17,52 +17,37 @@
 - [Fundamentals](#fundamentals)
 - [Type System](#type-system)
 - [Execution and Program Hierarchy](#execution-and-program-hierarchy)
+- [Getting Started with C#](#getting-started-with-c#)
 - [Usage](#usage)
 - [License](#license)
 -------------
 
 ## Fundamentals
-### C# Features
+### Features
  - Garbage Collection (check Source for more), i.e., automated reclamation of memory occupied by unreachable unused objects
  - LINQ, Language Integrated Query, to provide commmon-pattern syntax to work with data from any source
 
-### C# Program Execution
-- C# compiles the code to IL (Intermediate Language)
-- Code in IL is converted by .NET (CLR-Common Language Runtime & Set of Class libraries) to native-machine instructions by JIT (JustInTime) compilation
-
-
-### GENERIC CLASS
-
-* Class - collection of methods, Ex. string / List
-* Method - specific function inside a Class, Ex.string.Length / List.Count
-* Object(Variable using Class) - template of the Class called inside a Program for multiple use, i.e., instance of a class
-    * Example 1 - calls string Class and saves string fiveStars as "*****"
-    ```sh
-    string fiveStars = new string("*", 5);  
-    ```
-    * Example 2 - List class is called to create a new object "genericArray". All items are saved in it
-    ```sh
-    List<var> genericArray = new List<var>() { 32, "randy", 21.4, "2.1325", True }  
-    ```    
+### Program Execution
+ - C# compiles the code to IL (Intermediate Language)
+ - Code in IL is converted by .NET (CLR-Common Language Runtime & Set of Class libraries) to native-machine instructions by JIT (JustInTime) compilation
 
 
 ## TYPE System
-
-* .NET Framework follows [Common Type System or CTS](https://learn.microsoft.com/en-us/dotnet/standard/base-types/common-type-system).
-* CTS supports following 5 different categories :
+- .NET Framework follows [Common Type System or CTS](https://learn.microsoft.com/en-us/dotnet/standard/base-types/common-type-system).
+ - CTS supports following 5 different categories :
     1. <b>Classes
     2. Structures
     3. Enumerations
     4. Interfaces
     5. Delegates</b>
-* RECORD, used to define any of the TYPES for storage and minimal associated behavior (for ex. `record struct`, `record class`, etc.)
-* VALUE TYPES (Immutable)
+- RECORD, used to define any of the TYPES for storage and minimal associated behavior (for ex. `record struct`, `record class`, etc.)
+- VALUE TYPES (Immutable)
     * Simple (int, short, float, double, decimal, bool, char)
     * Enum
     * Struct (similar to class, but inherits from Object)
     * Nullable
     * Tuple
-* REFERENCE TYPES (Mutable)
+- REFERENCE TYPES (Mutable)
     * Class
         * Unicode Strings (string)
         * User-defined
@@ -72,19 +57,22 @@
 
 
 ## Execution and Program Hierarchy
+ - PROGRAMS (multiple Files and/or namespaces)
+ - NAMESPACES (holds Classes, Properties and everything included in the Program)
+ - TYPES (Value & Reference, ex. Class, Array, int, string, etc.)
+ - MEMBERS (Methods, Properties)
+ - ASSEMBLIES (Metadata, ex: .exe or .dll files)
 
-* PROGRAMS (multiple Files and/or namespaces)
-* NAMESPACES (holds Classes, Properties and everything included in the Program)
-* TYPES (Value & Reference, ex. Class, Array, int, string, etc.)
-* MEMBERS (Methods, Properties)
-* ASSEMBLIES (Metadata, ex: .exe or .dll files)
+
+## Getting Started with C#
+ - Find a suitable Environment based on situation :
+    - [Online Environment](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/), i.e., Browser based/ Microsoft Learn/ Jupyter on Binder Tutorials
+    - [Local Environment](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/local-environment), i.e., Personal Device 
 
 
 ------------
-## Usage
 
-### Getting Started
-To get a local copy up and running follow these simple steps.
+## Usage
 
 ### Prerequisites
 - Visual Studio 2022
