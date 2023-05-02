@@ -1,0 +1,34 @@
+using System;
+using System.Linq;
+
+public static class Kata
+{
+    public static int[] LastDigit(long n, int d)
+    {     
+      // total digits in n
+      int numLength = n.ToString().Length;
+
+      // differing conditions for digits requested, d 
+      // if d is invalid compared to n
+      if (d <= 0){ return new int[] { }; }
+      
+      // digits requested, d, > total digits in n
+      else if( d > numLength)
+      {
+        // convert n to numCharArray
+        char[] numCharArray = n.ToString().ToCharArray();
+        
+        // convert numCharArray to numIntArray using Linq Query
+        int[] numIntArray = numCharArray.Select(num => num - '0').ToArray();
+        return numIntArray;
+      }
+      // digits requested, d is within total digits of n
+      else{
+        // convert n to numCharArray consisting of string subset 
+        char[] numCharArray = n.ToString().ToCharArray(numLength-d, d);
+        // convert numCharArray to numIntArray using Linq Query
+        int[] numIntArray = numCharArray.Select(num => num - '0').ToArray();
+        return numIntArray;
+      }
+    }
+}
