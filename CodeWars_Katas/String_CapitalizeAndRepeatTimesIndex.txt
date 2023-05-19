@@ -1,0 +1,37 @@
+using System;
+
+public class Accumul 
+{
+  public static String Accum(string s) 
+  {
+    // logic :
+    // every char in string s should be represented as below
+    // modifiedString = charCapitalized * (stringIndex+1) + "-"
+    
+    // if single character
+    if (s.Length == 1) {return s.ToUpper();}
+    
+    // multiple characters 
+    else 
+    {
+      string mumble = String.Empty;       // initialize modifiedString
+      
+      // iterate by string index for each character
+      for(int i = 0; i < s.Length; i++)
+      {
+        // replicate string by the value (index+1)
+        string miniMumble = new string(s[i], i+1).ToLower();    // convert to lower case for uniformity
+        // capitalisation of replicated string
+        miniMumble = (char.ToUpper(miniMumble[0]) + miniMumble.Substring(1)); 
+        // prevent "-" addition to last character
+        if (i != s.Length-1){
+          mumble += miniMumble + "-";
+        }
+        else{
+          mumble += miniMumble;
+        }
+      }
+      return mumble;
+    }
+  }
+}
