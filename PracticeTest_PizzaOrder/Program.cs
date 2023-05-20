@@ -1,4 +1,6 @@
-﻿namespace PracticeTest
+﻿using static PracticeTest.Pizza;
+
+namespace PracticeTest
 {
     class PizzaOrder
     {
@@ -12,37 +14,46 @@
                 while (!userExit)
                 {
                     OrderDisplay(customerOrder);
+                    Console.WriteLine("Press 'a' to go back to Ordering, or\nPress 'enter' to continue");
                     userExit = (Console.ReadLine() != "a") ? true : false;
+
+                    Console.Clear();
                 }
 
 
                 // Customer Order Confirmation          
                 string userChoice = String.Empty;
-                while (userChoice != "x")
+                bool orderStatus = false;
+                while (!orderStatus)
                 {
-                    if (userChoice == "k")
+                    switch (userChoice)
                     {
-                        Console.WriteLine("Please enter your Address below (example: Sesame Street 10, 2 A 14) : ");
-                        string userAddress = Console.ReadLine();
-                        OrderConfirmation(customerOrder, userAddress);
-                    }
-                    else if (userChoice == "m")
-                    {
-                        customerOrder.Clear();
-                        Console.WriteLine("Let's restart your order!");
-                        Main();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Goodbye! See you soon :) ");
-                    }
-                    Console.WriteLine(@"
+                        case "k":
+                            Console.WriteLine("Please enter your Address below (example: Sesame Street 10, 2 A 14) : ");
+                            string userAddress = Console.ReadLine();
+                            OrderConfirmation(customerOrder, userAddress);
+                            orderStatus = true;
+                            break;
+                        case "m":
+                            customerOrder.Clear();
+                            Console.WriteLine("Let's restart your order!");
+                            orderStatus = true;
+                            Main();
+                            break;
+                        case "x":
+                            Console.WriteLine("Goodbye! See you soon :) ");
+                            orderStatus = true;
+                            break;
+                        default:
+                            Console.WriteLine(@"
 Done Choosing? 
 Confirm : Press 'k' | Cancel : Press 'x' | Modify : Press 'm'
 ");
-                    userChoice = Console.ReadLine();
-                }               
-                Console.Clear();
+                            userChoice = Console.ReadLine();
+                            break;
+                    }
+                }
+             //   Console.Clear();
             }
             catch (Exception ex)
             {
@@ -54,38 +65,52 @@ Confirm : Press 'k' | Cancel : Press 'x' | Modify : Press 'm'
 
 
 
-
+        // User Interface for Order Menu -iterate customerOrder
         static void OrderDisplay(List<Pizza> customerOrder)
         {
             Console.Title = "Pizza Order";
+
+            // list chosen toppings
+            if (customerOrder.Count != 0)
+            {
+                Console.WriteLine(@"
+            ~---~ Pizza Order ~---~
+Chosen Toppings: ");
+                int index = 0;
+                foreach (Pizza top in customerOrder)
+                {
+                    Console.WriteLine($"{index + 1}. {top.Topping}");
+                    index++;
+                }
+            }
+            
+            // Pizza Topping Menu -iterate enum Toppings values
             Console.WriteLine(@"
             ~---~ Pizza Order ~---~
-Chosen Toppings:
-                ");
 
-            Console.WriteLine(@"
-Topping Options:");
-            foreach (Pizza.Toppings top in Enum.GetValues(typeof(Pizza.Toppings)))
+Topping Options (Press 'enter' to exit menu):");
+            foreach (Toppings top in Enum.GetValues(typeof(Toppings)))
             {
                 int index = Array.IndexOf(Enum.GetValues(top.GetType()), top);
                 Console.WriteLine($"{index + 1}. {top}");
             }
-
             Console.WriteLine(@"
-Enter Topping choice (Enter a number between 1-7 to add Topping) :
-            ");
-
-            int option = int.Parse(Console.ReadLine()) - 1;     // adjust with index values
-            Pizza.Toppings topping = (Pizza.Toppings)option;
-            Customer.OrderDetails(customerOrder, topping);      // TO-DO: verify workflow, RESOLVED ISSUE: convert int to enum datatype by parsing 
-            //string topping = Enum.GetName(typeof(Pizza.Toppings), option);    
-            //customerOrder.Add(topping);
+Enter Topping choice (Enter a number between 1-7 to add Topping) :");
+             // user exits or chooses topping
+            var option = Console.ReadLine();
+            if (option == string.Empty) { return; }         // user exits order menu
+            else            // user chooses topping         // TO-DO: User chooses all toppings at once
+            { 
+                int choice = int.Parse(option) - 1;
+                // update user topping choices to List<Pizza> customerOrder
+                Toppings topping = (Toppings)choice;
+                Customer.OrderDetails(customerOrder, topping);      // convert int option to enum datatype
+            }    
 
             Console.WriteLine(@"
 Press 'a' to continue to add Toppings
-Press 'any key' to continue to confirm, cancel or modify the order
-                ");
-            Console.Clear();
+Press 'enter' to continue to Wrap-Up or Wrap-Down Order");
+            if (Console.ReadLine() == string.Empty) { return; }     // user exits order menu  
         }
 
 
@@ -93,19 +118,26 @@ Press 'any key' to continue to confirm, cancel or modify the order
         static void OrderConfirmation(List<Pizza> customerOrder, string userAddress)
         {
             Console.Title = "Pizza Order Confirmation";
+
             decimal totalPrice = Customer.CalculatePrice(customerOrder);
             decimal basePrice = Pizza.BasePrice;
-            int toppings = customerOrder.Count();
+            int totalToppings = customerOrder.Count();
+            string orderedToppings = string.Empty;
+            foreach (Pizza p in customerOrder)
+            {
+                orderedToppings += p.Topping.ToString() + " & ";
+            }
 
             Console.WriteLine($@"
 			~---~ Pizza Order Confirmation ~---~
 Order:
-{string.Join("& ", customerOrder)} topped Pizza
+Pizza topped with {orderedToppings}Awesomeness!
 
 Address:
 {userAddress}
+
 Price:
-{totalPrice} Euro  = (Pizza, {basePrice} Euro + {toppings} Toppings, {basePrice-totalPrice} Euro)
+{totalPrice} Euro  = (Pizza - {basePrice} Euro,  {totalToppings} Toppings - {totalPrice-basePrice} Euro)
 
 		~----~ Thank you for your Order! See you soon :) ~----~
 ");
