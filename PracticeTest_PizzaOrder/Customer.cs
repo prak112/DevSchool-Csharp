@@ -3,12 +3,12 @@ namespace PracticeTest
     class Customer
     {
         // Properties
-        public List<Pizza> OrderList = new List<Pizza>();
+        public List<Pizza> OrderList { get; set; }
 
         // Constructor
-        public Customer(List<Pizza> aOrderList) 
+        public Customer() 
         {
-            OrderList = aOrderList;
+            OrderList = new List<Pizza>(); ;
         }
 
         // Methods
