@@ -38,12 +38,16 @@ Chosen Toppings (updated after each selection)
 Topping Options:
 1. Pepperoni
 2. Mushroom
-3. Olive
-4. Minced meat
-5. Tuna
-6. Cheddar cheese
+3. Cheddar
+4. Chicken
+5. Olive
+6. Meat
+7. Tuna  
 
-Enter Topping choice(1-5): <- Enter a number between 1-5 to add Topping. 
+Enter Topping choice (Enter a number between 1-7 to add Topping) :
+
+Done Choosing? 
+Confirm : Press 'k' | Cancel : Press 'x' | Modify : Press 'm'
 ```
 
 * **User Interface Example for Pizza Order Confirmation:**
@@ -87,18 +91,18 @@ Price:
 * Add classes "Topping" and "Pizza" to the application defined as follows :
 
 ```
-Class Topping:
+Class Pizzeria:
 	// Class consists of toppings available for User selection
 	
 	// Properties 
-	Name <- Name of the topping.
+	enum Toppings <- ENUM structure of all available toppings
 
 
-Class Pizza :
+Class Customer :
 	// Class consists of order details
 
 	// Properties 
-	List<Topping> Toppings <- List of toppings selected by the user
+	List<Topping> Toppings <- LIST of toppings selected by the user
 	decimal Price 
 
 	// Methods 
