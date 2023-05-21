@@ -43,6 +43,10 @@ namespace PracticeTest
                     price = Pizza.BasePrice + 4;
                     return price;
 
+                case > 7:
+                    price = Pizza.BasePrice + 7;
+                    return price;
+
                 default:
                     price = Pizza.BasePrice;
                     return price;
