@@ -6,6 +6,9 @@ namespace PracticeTest
     {
         static void Main()
         {
+            //TO-DO : record terminal output for README (Task Output)
+            
+
             try
             {
                 // Customer Order
@@ -17,7 +20,7 @@ namespace PracticeTest
                 bool orderComplete = false;
                 while (!orderComplete)
                 {
-                    Console.Title = "Pizza Order Confirmation";
+                    Console.Title = "Pizza Order";
 
                     switch (userChoice)
                     {
@@ -25,9 +28,15 @@ namespace PracticeTest
                             // ask delivery address and call OrderConfirmation method
                             OrderConfirmation(customerOrder);
                             orderComplete = true;
-                            break;                         
+                            break;
+
+                        case "a":
+                            // user adds more toppings and returns to confirm order
+                            OrderDisplay(customerOrder);
+                            userChoice = String.Empty;
+                            break;
                             
-                        case "m":
+                        case "r":
                             // clear customerOrder list and return to Main()
                             customerOrder.Clear();
                             Console.WriteLine("Let's restart your order!");
@@ -39,6 +48,9 @@ namespace PracticeTest
                             // customer exits
                             Console.WriteLine("Goodbye! See you soon :) ");
                             orderComplete = true;
+                            // display message until user presses any key
+                            Console.WriteLine("...Press any key to exit...");
+                            Console.ReadKey();
                             break;
                         
                         default:
@@ -58,14 +70,13 @@ Chosen Toppings: ");
                             // choices for customer to proceed
                             Console.WriteLine(@"
 Done Choosing? 
-Confirm : Press 'k' | Cancel : Press 'x' | Modify : Press 'm'
+Confirm : Press 'k' | Cancel : Press 'x' | Restart Order : Press 'r' | Add more Topping : Press 'a'
 ");
                             userChoice = Console.ReadLine();
                             Console.Clear();
                             break;
                     }
                 }
-             //   Console.Clear();
             }
             catch (Exception ex)
             {
@@ -76,7 +87,7 @@ Confirm : Press 'k' | Cancel : Press 'x' | Modify : Press 'm'
 
 
 
-
+        // Static Methods for User Interface
         // User Interface for Order Menu -iterate customerOrder
         static void OrderDisplay(List<Pizza> customerOrder)
         {
@@ -84,6 +95,21 @@ Confirm : Press 'k' | Cancel : Press 'x' | Modify : Press 'm'
             do
             {
                 Console.Title = "Pizza Order";
+
+                // user wants to add more toppings
+                if (customerOrder.Count != 0)
+                {
+                    Console.WriteLine(@"
+        ~---~ Pizza Order ~---~
+
+Chosen Toppings: ");
+                    int index = 0;
+                    foreach (Pizza top in customerOrder)
+                    {
+                        Console.WriteLine($"{index + 1}. {top.Topping}");
+                        index++;
+                    }
+                }
 
                 // Pizza Topping Menu -iterate enum Toppings values
                 Console.WriteLine(@"
@@ -99,8 +125,9 @@ Topping Options (Press 'enter' to exit menu):");
 Enter Topping choice (example: 2 3 5):");
                 // user exits or chooses topping
                 string options = Console.ReadLine();
-                if (options == string.Empty) { Console.Clear();  return; }         // user exits order menu
-                else            // user chooses all toppings at once
+                if (options == string.Empty)        // user redirected to Pizza Order Confirmation menu to exit
+                { Console.Clear();  return; }         
+                else                                // user chooses all toppings at once
                 {
                     string[] choices = options.Split(' ');
                     foreach (string ch in choices)
@@ -119,8 +146,6 @@ Enter Topping choice (example: 2 3 5):");
 
             } while (!userExit);
         }
-
-
 
 
         // User Interface for Order Confirmation
@@ -159,10 +184,14 @@ Delivery Address:
 {userAddress}
 
 Price:
-{totalPrice} Euro  = (Pizza - {basePrice} Euro,  {totalToppings} Toppings - {totalPrice - basePrice} Euro)
+{totalPrice} Euro  = {basePrice} Euro (Pizza) + {totalPrice - basePrice} Euro ({totalToppings} Toppings)
 
 		~----~ Thank you for your Order! See you soon :) ~----~
                 ");
+
+                // display message until user presses any key
+                Console.WriteLine("...Press any key to exit...");
+                Console.ReadKey();
             }
             
         }
