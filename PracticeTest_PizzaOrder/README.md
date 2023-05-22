@@ -9,7 +9,7 @@
  
 
 
-## Instructions
+## Workflow
 ### 1. User interface
 
 * Ordering User interface has following elements : 
@@ -45,6 +45,7 @@ Topping Options:
 7. Tuna  
 
 Enter Topping choice (Enter a number between 1-7 to add Topping) :
+1 2
 
 Done Choosing? 
 Confirm : Press 'k' | Cancel : Press 'x' | Modify : Press 'm'
@@ -113,3 +114,6 @@ Class Customer :
 		> if confirmed displays Order details with goodbye note, else clear user input and revert back to order page
 		> If chooses to exit, displays goodbye note
 ```
+
+## Task Output
+* 
